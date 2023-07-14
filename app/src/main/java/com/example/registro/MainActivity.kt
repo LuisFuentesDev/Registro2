@@ -21,10 +21,13 @@ fun main() {
             println("Nombre inválido, ingrese nuevamente")
             nombre = readln()
         }
-
+        println("Ingrese el apellido")
         var apellido = readln()
+        println("Ingrese la edad")
         var edad = readln().toInt()
+        println("Ingrese el correo")
         var correo = readln()
+        println("Ingrese el sistema de salud")
         var sistemaSalud = readln()
 
         var usuario = Usuario(nombre, apellido, edad, correo, sistemaSalud)
