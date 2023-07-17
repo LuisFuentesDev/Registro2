@@ -45,7 +45,7 @@ fun main() {
             correo = readln()
         }
 
-        println("Ingrese el sistema de salud")
+        println("Ingrese el sistema de salud: Fonasa o Isapre")
         var sistemaSalud = readln()
         validarSistemaSalud(sistemaSalud)
         while (!validarSistemaSalud(sistemaSalud)) {
