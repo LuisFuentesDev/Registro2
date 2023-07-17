@@ -49,7 +49,7 @@ fun main() {
         var sistemaSalud = readln()
         validarSistemaSalud(sistemaSalud)
         while (!validarSistemaSalud(sistemaSalud)) {
-            println("Apeliido inválido, ingrese nuevamente")
+            println("Sistema de salud inválido, ingrese nuevamente")
             sistemaSalud = readln()
         }
 
