@@ -24,7 +24,7 @@ fun main() {
         println("Ingrese el apellido")
         var apellido = readln()
         validarApellido(apellido)
-        while (!validarApellido(apellido)){
+        while (!validarApellido(apellido)) {
             println("Apellido inválido, ingrese nuevamente")
             apellido = readln()
         }
@@ -32,7 +32,7 @@ fun main() {
         println("Ingrese la edad")
         var edad = readln().toInt()
         validadEdad(edad)
-        while (!validadEdad(edad)){
+        while (!validadEdad(edad)) {
             println("Edad inválida, ingrese nuevamente")
             edad = readln().toInt()
         }
@@ -40,7 +40,7 @@ fun main() {
         println("Ingrese el correo")
         var correo = readln()
         validarCorreo(correo)
-        while (!validarCorreo(correo)){
+        while (!validarCorreo(correo)) {
             println("Correo inválido, ingrese nuevamente")
             correo = readln()
         }
@@ -48,7 +48,7 @@ fun main() {
         println("Ingrese el sistema de salud")
         var sistemaSalud = readln()
         validarSistemaSalud(sistemaSalud)
-        while (!validarSistemaSalud(sistemaSalud)){
+        while (!validarSistemaSalud(sistemaSalud)) {
             println("Apeliido inválido, ingrese nuevamente")
             sistemaSalud = readln()
         }
@@ -56,25 +56,25 @@ fun main() {
         var usuario = Usuario(nombre, apellido, edad, correo, sistemaSalud)
         usuarios.add(usuario)
     }
-    for (u in usuarios) {
+    for (u in usuarios.sortedBy { usuario -> usuario.edad }) {
         println(u)
     }
 }
 
-fun validarSistemaSalud(sistemaSalud: String) {
-
+fun validarSistemaSalud(sistemaSalud: String): Boolean {
+    return sistemaSalud == "Fonasa" || sistemaSalud == "Isapre" || sistemaSalud == "fonasa" || sistemaSalud == "isapre"
 }
 
-fun validarCorreo(correo: String) {
-
+fun validarCorreo(correo: String): Boolean {
+    return correo.length in 5..200 && correo.contains('@') || correo.contains('.')
 }
 
-fun validadEdad(edad: Int) {
-
+fun validadEdad(edad: Int): Boolean {
+    return edad in 0..100
 }
 
-fun validarApellido(apellido: String) {
-
+fun validarApellido(apellido: String): Boolean {
+    return apellido.length in 0..25
 }
 
 fun validarNombre(nombre: String): Boolean {
@@ -82,10 +82,10 @@ fun validarNombre(nombre: String): Boolean {
 }
 
 data class Usuario(
-    var nombre: String,
-    var apellido: String,
-    var edad: Int,
-    var correo: String,
-    var sistemaSalud: String
+    val nombre: String,
+    val apellido: String,
+    val edad: Int,
+    val correo: String,
+    val sistemaSalud: String
 )
 
